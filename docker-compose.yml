@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  flask-api:
+    container_name: flask_api
+    image: flask_api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - roudb
+    environment:
+      - DB_URL=postgresql://postgres:postgres@roudb:5432/roulettedb
+
+  roudb:
+    container_name: roudb
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: roulettedb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata: {}
