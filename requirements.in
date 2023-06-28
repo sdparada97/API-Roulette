@@ -1,3 +1,10 @@
-apiflask
+alembic
+Flask
+Flask-Migrate
+flask-restx
+Flask-SQLAlchemy
+Flask-JWT-Extended
 pip-tools
 psycopg2-binary
+pydantic
+python-dotenv
