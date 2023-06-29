@@ -38,6 +38,9 @@ class RouletteOpen(Resource):
     @roulette_namespace.marshal_with(patch_model)
     @jwt_required()
     def patch(self,roulette_id):
+        """
+            Open a roulette
+        """
         roulette = Roulette.query.get(roulette_id)
         
         if not roulette:
