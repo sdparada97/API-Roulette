@@ -41,3 +41,9 @@ Into the Container bash run
 ```
 
 With this you can have all model about **Roulette - API**
+
+## API Reference
+
+#### Swagger (Image)
+![image](https://github.com/sdparada97/API-Roulette/assets/49702755/e1ff3434-d568-4917-a810-65f6d098de14)
+
