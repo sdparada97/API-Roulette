@@ -11,13 +11,13 @@ services:
     depends_on:
       - roudb
     environment:
-      - DB_URL=postgresql://postgres:postgres@roudb:5432/roulettedb
+      - DB_URL=postgresql://postgres:admin@roudb:5432/roulettedb
 
   roudb:
     container_name: roudb
     image: postgres:12
     ports:
-      - "5432:5432"
+      - "6543:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
