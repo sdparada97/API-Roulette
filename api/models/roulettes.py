@@ -14,6 +14,14 @@ class Roulette(db.Model):
     is_active = db.Column(db.Enum(RouletteStatus,
                                     values_callable=lambda x: [str(e.value) for e in RouletteStatus]),
                             default=RouletteStatus.OPEN)
-
+    
+    def __init__(self):
+        self.total_bet = 0
+        self.is_active = RouletteStatus.OPEN.value
+    
     def __repr__(self):
         return f"<Roulette {self.id}>"
+    
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
