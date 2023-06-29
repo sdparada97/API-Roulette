@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "1da10b66-6177-44c7-acd1-41c3be17d61b",
+		"name": "Roulette-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11032041",
+		"_collection_link": "https://red-station-962190.postman.co/workspace/Proyecto-Flask~9dfec552-c5a3-48a4-9daa-a4edb371dabe/collection/11032041-1da10b66-6177-44c7-acd1-41c3be17d61b?action=share&creator=11032041&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"usertest@email.com\",\r\n  \"password\": \"password\",\r\n  \"available_credit\": 70000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"usertest@email.com\",\r\n  \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new JWT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAxNDU4OSwianRpIjoiMWRhNmViYmQtNzdhNS00OTAzLWExOTUtZDljNzZlYjFhZjQ3IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOjIsIm5iZiI6MTY4ODAxNDU4OSwiZXhwIjoxNjg4MDE2Mzg5fQ.8Qiy6_yTIf0KPH-Re9VBmF0I8i7Q9mXbyGDRuRUrwnI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/auth/refresh",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roulette",
+			"item": [
+				{
+					"name": "Create Roulette",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAxOTEyNywianRpIjoiNzBhNDk1NWMtNDg5MC00ZGUyLWEyMjktZTMyMzI3NDcxNTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDE5MTI3LCJleHAiOjE2ODgwMjA5Mjd9.Z0WCFllNzb7gRQYe51Vpwko0T6tcFNCo-9sMD_cT0Uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/roulettes/Roulette",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"roulettes",
+								"Roulette"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Open Roulette",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAxOTEyNywianRpIjoiNzBhNDk1NWMtNDg5MC00ZGUyLWEyMjktZTMyMzI3NDcxNTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDE5MTI3LCJleHAiOjE2ODgwMjA5Mjd9.Z0WCFllNzb7gRQYe51Vpwko0T6tcFNCo-9sMD_cT0Uw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/roulettes/Roulette/open/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"roulettes",
+								"Roulette",
+								"open",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bet",
+			"item": [
+				{
+					"name": "Create Bet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAyMzQ5OCwianRpIjoiMGVkMTNkN2ItMGViOC00YmE0LTkzZmYtZDU3MzRiYmJiMGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDIzNDk4LCJleHAiOjE2ODgwMjUyOTh9.WmYWLEv-FWkje9DiOqTJZwJh5vuY6gkx5ANhfBdR5LY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id_roulette\": 1,\r\n  \"bet_amount\": 8000,\r\n  \"type_bet\": \"NUMERIC\",\r\n  \"number_bet\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/bets/bet",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bets",
+								"bet"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
