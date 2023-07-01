@@ -20,6 +20,8 @@ class Bet(db.Model):
     color_bet = db.Column(db.Enum(Color,values_callable=lambda x: [str(e.value) for e in Color]))
     number_bet = db.Column(db.Integer)
     bet_amount = db.Column(db.Numeric(), nullable=False)
+    is_wins = db.Column(db.Boolean(),default=False)
+    amount_won = db.Column(db.Numeric(), nullable=False, default=0)
     
     def __repr__(self):
         return f"<Bet {self.id}>"

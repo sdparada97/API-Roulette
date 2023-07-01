@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"usertest@email.com\",\r\n  \"password\": \"password\",\r\n  \"available_credit\": 70000\r\n}",
+							"raw": "{\r\n  \"email\": \"usertest3@email.com\",\r\n  \"password\": \"password\",\r\n  \"available_credit\": 70000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"usertest@email.com\",\r\n  \"password\": \"password\"\r\n}",
+							"raw": "{\r\n  \"email\": \"usertest3@email.com\",\r\n  \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,7 +111,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAxOTEyNywianRpIjoiNzBhNDk1NWMtNDg5MC00ZGUyLWEyMjktZTMyMzI3NDcxNTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDE5MTI3LCJleHAiOjE2ODgwMjA5Mjd9.Z0WCFllNzb7gRQYe51Vpwko0T6tcFNCo-9sMD_cT0Uw",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODE5MTU1MSwianRpIjoiNmM3Y2UzNTAtNGU3Yi00MDkzLWE1OWYtYjVhYjk0MmIwMjA3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MTkxNTUxLCJleHAiOjE2ODgxOTMzNTF9.0cFlBh__hWnKK2cFm8FQpLXyoZl80Op6T7j-LXDh-NU",
 									"type": "string"
 								}
 							]
@@ -136,14 +136,7 @@
 					"name": "Open Roulette",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAxOTEyNywianRpIjoiNzBhNDk1NWMtNDg5MC00ZGUyLWEyMjktZTMyMzI3NDcxNTg5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDE5MTI3LCJleHAiOjE2ODgwMjA5Mjd9.Z0WCFllNzb7gRQYe51Vpwko0T6tcFNCo-9sMD_cT0Uw",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "PATCH",
 						"header": [],
@@ -157,6 +150,27 @@
 								"roulettes",
 								"Roulette",
 								"open",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close Ruolette",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/roulettes/Roulette/close/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"roulettes",
+								"Roulette",
+								"close",
 								"1"
 							]
 						}
@@ -176,7 +190,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODAyMzQ5OCwianRpIjoiMGVkMTNkN2ItMGViOC00YmE0LTkzZmYtZDU3MzRiYmJiMGNkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNjg4MDIzNDk4LCJleHAiOjE2ODgwMjUyOTh9.WmYWLEv-FWkje9DiOqTJZwJh5vuY6gkx5ANhfBdR5LY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4ODE5MjAwOCwianRpIjoiYzM0Yjc0NjktY2RkNC00ZWY4LTg2ZTMtNTkzOTBjNTMwMmExIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6NCwibmJmIjoxNjg4MTkyMDA4LCJleHAiOjE2ODgxOTM4MDh9.PMAiVARPB9BtD127a7ggRzr9W7qIFQuWJFIeM1j0MGE",
 									"type": "string"
 								}
 							]
@@ -185,7 +199,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_roulette\": 1,\r\n  \"bet_amount\": 8000,\r\n  \"type_bet\": \"NUMERIC\",\r\n  \"number_bet\": 12\r\n}",
+							"raw": "{\r\n  \"id_roulette\": 1,\r\n  \"bet_amount\": 20000,\r\n  \"type_bet\": \"NUMERIC\",\r\n  \"number_bet\": 23\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

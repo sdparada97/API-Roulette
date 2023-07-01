@@ -1,6 +1,9 @@
 from api.database import db
+from decimal import Decimal
 from enum import Enum
-import sqlalchemy as sa
+
+from ..models.bets import Bet, TypeBet
+from ..models.users import User
 
 class RouletteStatus(Enum):
     OPEN = 'ABIERTA'
@@ -21,6 +24,50 @@ class Roulette(db.Model):
     def __repr__(self):
         return f"<Roulette {self.id}>"
     
+    def get_total_bets(self):
+        self.total_bet = sum(bet.bet_amount for bet in self.bets)
+        return self.total_bet
+    
+    def get_roulette_result(self,num_wins,color_wins):
+        roulette_results = []
+        for bet in self.bets:
+            if isinstance(bet,Bet):
+                user = User.query.filter_by(id=bet.user_id).first()
+                if isinstance(user,User):
+                    if bet.type_bet == TypeBet.COLOR:
+                        print(bet.color_bet)
+                        if bet.color_bet.value == color_wins:
+                            bet.is_wins = True
+                            bet.amount_won = bet.bet_amount * Decimal(1.8)
+                            user.available_credit += bet.amount_won
+                            bet.save()
+                        else:
+                            user.available_credit -= bet.bet_amount
+                        user.save()
+                        roulette_results.append({
+                            "id": bet.id,
+                            "color": bet.color_bet.value,
+                            "is_wins": bet.is_wins,
+                            "bet_amount": bet.amount_won
+                        })
+                    if bet.type_bet == TypeBet.NUMBER:
+                        if bet.number_bet == num_wins:
+                            bet.is_wins = True
+                            bet.amount_won = bet.bet_amount * Decimal(5)
+                            user.available_credit += bet.amount_won
+                            bet.save()
+                        else:
+                            user.available_credit -= bet.bet_amount
+                        user.save()
+                        roulette_results.append({
+                            "id": bet.id,
+                            "number": bet.number_bet,
+                            "is_wins": bet.is_wins,
+                            "bet_amount": bet.amount_won
+                        })
+        return roulette_results
+        
     def save(self):
         db.session.add(self)
         db.session.commit()
+        
